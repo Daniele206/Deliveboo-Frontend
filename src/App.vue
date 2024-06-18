@@ -1,34 +1,32 @@
 <script>
-  //axios
-  import axios from 'axios';
-  //axios
+//axios
+import axios from "axios";
+//axios
 
-  import Header from './components/Header.vue';
-  import Main from './components/Main.vue';
-  import Footer from './components/Footer.vue';
+import Header from "./partials/Header.vue";
+import Footer from "./partials/Footer.vue";
 
-  export default {
-    components:{
-      Header,
-      Main,
-      Footer
-    },
-    
-  }
+export default {
+  components: {
+    Header,
+    Footer,
+  },
+};
 </script>
 
-
 <template>
-  <div>
-    <Header />
-    <Main />
-    <Footer />
-  </div>
+  <Header />
+  <Footer />
 </template>
 
-
 <style lang="scss">
-
-  @use './assets/scss/main.scss';
-
+@use "./assets/scss/main.scss";
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  background-color: rgb(255, 255, 255);
+}
 </style>
