@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div>
     <header class="row">
       <img src="" alt="Logo" class="logo" />
       <nav class="nav">
