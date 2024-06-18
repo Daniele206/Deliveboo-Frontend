@@ -1,0 +1,13 @@
+header {
+  ul {
+    width: 100%;
+    display: flex;
+
+    justify-content: space-around;
+    li {
+      font-weight: 700;
+      list-style: none;
+      color: $red-500;
+    }
+  }
+}
