@@ -2,12 +2,14 @@
 import Hero from "../partials/Hero.vue"
 import Swiper from "../partials/Swiper.vue";
 import Consegna from "../partials/Consegna.vue";
+import Scarica from "../partials/Scarica.vue";
 
   export default {
     components:{
       Hero,
       Swiper,
       Consegna,
+      Scarica,
     }
 
   }
@@ -19,6 +21,8 @@ import Consegna from "../partials/Consegna.vue";
   <Swiper />
 
   <Consegna />
+
+  <Scarica />
 </template>
 
 

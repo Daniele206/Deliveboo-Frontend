@@ -35,18 +35,11 @@
           <p class="text-black">I migliori ristoranti della tua città</p>
         </div>
 
-        <div class="point mx-md-4">
-          <img src="/src/assets/img/vertical-point.png" alt="">
-        </div>
 
         <!-- seconda icona -->
         <div class="mb-4 mb-md-0 mx-md-4 text-center">
           <img src="/src/assets/img/rider.png" alt="">
           <p class="text-black">Consegna rapida</p>
-        </div>
-
-        <div class="point mx-md-4">
-          <img src="/src/assets/img/vertical-point.png" alt="">
         </div>
 
         <!-- terza icona -->
@@ -83,8 +76,8 @@
   font-size: 3.5rem;
   
   .my_consegna {
-    width: 100%; /* Occupa tutta la larghezza disponibile */
-    text-align: center; /* Centra il testo */
+    width: 100%;
+    text-align: center;
   }
   
   p {
@@ -98,8 +91,8 @@
 
   @media (max-width: 768px) {
     .my_consegna {
-      width: 100%; /* Occupa tutta la larghezza su schermi piccoli */
-      text-align: center; /* Centra il testo su schermi piccoli */
+      width: 100%;
+      text-align: center;
     }
 
     p {
