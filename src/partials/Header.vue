@@ -8,7 +8,7 @@ export default {
   <div>
     <header class="container">
       <div class="row align-content-center header_d">
-        <router-link class="col logo" :to="{name: 'home'}">
+        <router-link class="col logo p-0" :to="{name: 'home'}">
           <img src="/src/assets/img/logo.jpg" alt="Logo" class="logo_img"/>
         </router-link>
         <nav class="nav col d-flex justify-content-end p-0">
@@ -32,7 +32,5 @@ export default {
 
 .logo {
   height: 50px;
-  .logo_img{
-  }
 }
 </style>
