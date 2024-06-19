@@ -29,7 +29,7 @@
 @use "../assets/scss/variables" as *;
 
 .container-fluid {
-  height: 100vh;
+  // height: 100vh;
   .img-container {
     position: relative;
     img {
@@ -52,7 +52,8 @@
     }
 
   @media (max-width: 767px) {
-    .text-overlay {
+
+  .text-overlay {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -70,6 +71,7 @@
       max-width: 100%;
       font-size: 3rem;
     }
+   
   }
 }
 </style>
