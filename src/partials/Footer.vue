@@ -66,8 +66,6 @@ export default {};
             <div class="boxettino"></div>
             <div class="boxettino"></div>
           </div>
-          
-         
         </div>
       </div>
     </div>
@@ -85,7 +83,6 @@ export default {};
       <div class=" d-flex my-3">
         <div><i class="fa-regular fa-copyright"></i></div> 
         <p>2024Deliverboo All ReservedRigths</p>
-
       </div>
 
       <div>
@@ -93,9 +90,7 @@ export default {};
           <li><a href="">About</a></li>
           <li><a href="">Delivery</a></li>
           <li><a href="">Contacts</a></li>
-
         </ul>
-
       </div>
 
     </div>
@@ -111,12 +106,11 @@ export default {};
   width: 100%;
   padding: 20px 0;
   object-fit: contain;
-  background-size: cover;
-  
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/src/assets/img/footer-background.png');
-  
-  
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.1); 
   
@@ -176,7 +170,7 @@ ul{
 
 .social-icons {
   padding-top: 25px;
- a {
+a {
   
   color: white;
   margin-right:10px;
