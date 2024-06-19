@@ -12,8 +12,8 @@ export default {};
 
           <ul class="">
             <li><span><i class="fa-solid fa-location-dot"></i></span>Via Gherardo Luigi, 24</li>
-            <li><span><i class="fa-solid fa-clock"></i></span><a href="*"></a>DOM 11:00-24:00</li>
-            <li><span><i class="fa-solid fa-bag-shopping"></i></span><a href=""></a>DOM 01:00-03:00 </li>
+            <li><span><i class="fa-solid fa-clock"></i></span>DOM 11:00-24:00</li>
+            <li><span><i class="fa-solid fa-bag-shopping"></i></span>DOM 01:00-03:00 </li>
             <li><span><i class="fa-solid fa-phone-volume"></i></span>+39 3543653625 </li>
             
 
