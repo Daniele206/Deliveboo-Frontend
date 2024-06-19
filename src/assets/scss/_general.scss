@@ -30,3 +30,15 @@ img{
   background-color: $primary_red_hover;
   transition: .3s;
 }
+
+@media screen and (max-width: 576px) {
+  .my_btn{
+    padding: 0px 10px;
+    height: 40px;
+    margin: auto 0 auto 10px;
+  }
+}
+
+.text_my_red{
+  color: $primary_red;
+}

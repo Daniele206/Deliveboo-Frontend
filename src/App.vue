@@ -12,7 +12,7 @@ export default {
 
 <template>
   <Header />
-  <div>
+  <div class="fixer_pt">
     <router-view></router-view>
   </div>
   <Footer />
@@ -23,5 +23,8 @@ export default {
 
 body {
   background-color: $primary_red;
+  .fixer_pt{
+    padding-top: 100px;
+  }
 }
 </style>

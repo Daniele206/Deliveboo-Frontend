@@ -8,15 +8,21 @@
 </script>
 
 <template>
-    <div class="btn-group align-items-center" role="group" aria-label="Basic checkbox toggle button group">
-      <h6 class="text-light fw-bold me-2">Filtro per tipologia:</h6>
-      <div  v-for="(oneType, i) in types" :key="oneType.id" class="mx-2">
-        <input type="checkbox" class="btn-check" :id="'btncheck' + i" autocomplete="off">
-        <label class="btn btn-outline-warning" :for="'btncheck' + i">{{ oneType.name }}</label>
+  <div>
+    <h6 class="text-light fw-bold mb-3 text-center">Filtro per tipologia</h6>
+    <div class="btn-group justify-content-center align-items-center flex-wrap" role="group" aria-label="Basic checkbox toggle button group">
+      <div  v-for="(oneType, i) in types" :key="oneType.id" class="mx-2 my-1">
+        <input type="checkbox" class="btn-check my_w" :id="'btncheck' + i" autocomplete="off">
+        <label class="btn btn-outline-warning my_w text-capitalize" :for="'btncheck' + i">{{ oneType.name }}</label>
       </div>
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+
+.my_w{
+  width: 120px;
+}
 
 </style>
