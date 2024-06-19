@@ -62,7 +62,7 @@
 </script>
 
 <template>
-  <div class="container">
+  <div class="container pb-3">
     <h1 class="text-center mt-4 mb-5 fw-bold text-light">Tutti i nostri ristoranti</h1>
     <div v-if="redyReedTypes && redyReedRestaurants" class="checkbox_container d-flex justify-content-center">
       <TypeSelector 
@@ -74,10 +74,12 @@
       :restaurant="restaurant"
       />
     </div>
-    <h4 v-else class="d-flex justify-content-center mt-3">Loading...</h4>
+    <h4 v-else class="d-flex justify-content-center mt-3 my_h">Loading...</h4>
   </div>
 </template>
 
 <style lang="scss" scoped>
-
+  .my_h{
+    height: 100vh;
+  }
 </style>
