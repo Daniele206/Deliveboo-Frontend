@@ -87,9 +87,9 @@ export default {};
 
       <div>
         <ul class=" d-flex my_links my-3 ">
-          <li><a href="">About</a></li>
-          <li><a href="">Delivery</a></li>
-          <li><a href="">Contacts</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Delivery</a></li>
+          <li><a href="#">Contacts</a></li>
         </ul>
       </div>
 
@@ -102,10 +102,8 @@ export default {};
 .footer {
   background-color: black;
   color: white;
-  height: 450px;
   width: 100%;
   padding: 20px 0;
-  object-fit: contain;
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/src/assets/img/footer-background.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -187,6 +185,7 @@ a {
   border-bottom: 2px solid white;
   margin-top: 50px;
 }
+
 @media (max-width: 768px) {
   .row {
     flex-direction: column;
@@ -207,9 +206,9 @@ a {
     padding: 10px 0;
   }
 
-  .container {
-    padding: 0 10px;
-  }
+  // .container {
+  //   padding: 0 10px;
+  // }
 
   .col h4 {
     font-size: 1.2em;
