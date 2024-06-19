@@ -1,6 +1,6 @@
 <script>
 import Hero from "../partials/Hero.vue"
-import Swiper from "../partials/Swiper.vue";
+import Swiper from "../components/Swiper.vue";
 import Consegna from "../partials/Consegna.vue";
 import Scarica from "../partials/Scarica.vue";
 
