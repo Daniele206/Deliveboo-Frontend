@@ -75,7 +75,7 @@
         } else {
             this.restaurants = this.originalRestaurants.filter(restaurant => {
                 // Verifica che ogni tipo selezionato sia presente nei tipi del ristorante
-                return selectedTypes.every(selectedType => 
+                return selectedTypes.every(selectedType =>
                     restaurant.types.some(type => type.name === selectedType)
                 );
             });
