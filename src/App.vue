@@ -16,17 +16,16 @@ export default {
 
 <template>
   <Header />
+  <div>
+    <router-view></router-view>
+  </div>
   <Footer />
 </template>
 
 <style lang="scss">
-@use "./assets/scss/main.scss";
-* {
-  padding: 0;
-  box-sizing: border-box;
-  margin: 0;
-}
+@use "./assets/scss/variables" as *;
+
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: $primary_red;
 }
 </style>

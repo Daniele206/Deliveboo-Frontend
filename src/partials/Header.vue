@@ -6,42 +6,51 @@ export default {
 
 <template>
   <div>
-    <header class="row">
-      <img src="" alt="Logo" class="logo" />
-      <nav class="nav">
-        <button>Accedi</button>
-        <button>Registrati</button>
-        <button>Aiuto</button>
-      </nav>
+    <header class="container">
+      <div class="row align-content-center header_d">
+        <router-link class="col logo" :to="{name: 'home'}">
+          <img src="/src/assets/img/logo.jpg" alt="Logo" class="logo_img"/>
+        </router-link>
+        <nav class="nav col d-flex justify-content-end p-0">
+          <router-link class="my_btn text-decoration-none" :to="{name: 'restaurants'}">Ristoranti</router-link>
+          <router-link class="my_btn text-decoration-none" :to="{name: 'cart'}"><i class="fa-solid fa-cart-shopping"></i></router-link>
+        </nav>
+      </div>
     </header>
   </div>
 </template>
 
 <style scoped lang="scss">
 @use "../assets/scss/variables" as *;
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: $white-100;
+.header_d {
+  margin-top: 20px;
+  padding: 10px 30px;
+  background-color: white;
   color: black;
+  border-radius: 50px;
 }
 
 .logo {
   height: 50px;
+  .logo_img{
+  }
 }
 
-.nav button {
-  margin-left: 10px;
-  background: none;
-  border: none;
-  color: rgb(0, 0, 0);
+.my_btn{
+  display: flex;
+  align-items: center;
   font-size: 16px;
-  cursor: pointer;
+  color:white;
+  background-color: $primary_red;
+  border: none;
+  border-radius: 10px;
+  padding: 0 20px;
+  margin-left: 10px;
+  transition: .3s;
 }
 
-.nav button:hover {
-  text-decoration: underline;
+.my_btn:hover{
+  background-color: $primary_red_hover;
+  transition: .3s;
 }
 </style>
