@@ -35,22 +35,4 @@ export default {
   .logo_img{
   }
 }
-
-.my_btn{
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  color:white;
-  background-color: $primary_red;
-  border: none;
-  border-radius: 10px;
-  padding: 0 20px;
-  margin-left: 10px;
-  transition: .3s;
-}
-
-.my_btn:hover{
-  background-color: $primary_red_hover;
-  transition: .3s;
-}
 </style>
