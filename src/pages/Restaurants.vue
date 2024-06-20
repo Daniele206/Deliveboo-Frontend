@@ -91,7 +91,7 @@
 </script>
 
 <template>
-  <div class="my_padding">
+  <div class="my_padding my_h">
     <h1 class="text-center mt-4 mb-5 fw-bold text-light">Tutti i nostri ristoranti</h1>
     <div v-if="redyReedTypes && redyReedRestaurants" class="checkbox_container d-flex justify-content-center">
       <TypeSelector 
@@ -108,14 +108,14 @@
       <!-- <div v-else class="d-flex justify-content-center my_h">
         <div  class="loader mt-5 "></div>
       </div> -->
-    <div v-else class="d-flex justify-content-center  ">
-      <div id="cooking">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div id="area">
+      <div v-else class="d-flex justify-content-center  ">
+        <div id="cooking">
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div id="area">
             <div id="sides">
                 <div id="pan"></div>
                 <div id="handle"></div>
@@ -123,12 +123,9 @@
             <div id="pancake">
                 <div id="pastry"></div>
             </div>
+          </div>
         </div>
-    </div>
-    </div>
-    
-    
-    
+      </div>
     </div>
   </div>
 
@@ -139,7 +136,7 @@
     padding-top: 100px;
   }
   .my_h{
-    height: 100vh;
+    min-height: 100vh;
   }
   
 // --------padella-------
