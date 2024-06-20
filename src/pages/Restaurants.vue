@@ -24,9 +24,8 @@
     data(){
       return{
         store,
-        restaurants: [],
-        originalRestaurants: [],
-        redyReedRestaurants: false,
+        // restaurants: [],
+        // originalRestaurants: [],
         types: [],
         redyReedTypes: false
       }
@@ -34,17 +33,6 @@
 
     methods:{
       getApi(){
-        axios.get(this.store.apiUrl + '/restaurants')
-        .then(result => {
-          this.redyReedRestaurants = true;
-          this.restaurants = result.data;
-          this.originalRestaurants = result.data;
-            console.log(this.restaurants);
-          })
-          .catch(error => {
-            console.log(error);
-          })
-
         axios.get(this.store.apiUrl + '/types')
           .then(result => {
             this.redyReedTypes = true;
@@ -56,35 +44,25 @@
           })
       },
 
-      // selecteType(){
-      //   console.log('parte');
-      //   console.log(this.store.typesSelected);
-      //   if(Object.keys(this.store.typesSelected).length === 0){
-      //     this.restaurants = this.originalRestaurants;
-      //   }else{
-      //     this.restaurants = this.originalRestaurants.map()
+      // selectType() {
+      //   const selectedTypes = Object.values(this.store.typesSelected);
+
+      //   if (selectedTypes.length === 0) {
+      //       this.restaurants = this.originalRestaurants;
+      //   } else {
+      //       this.restaurants = this.originalRestaurants.filter(restaurant => {
+      //           // Verifica che ogni tipo selezionato sia presente nei tipi del ristorante
+      //           return selectedTypes.every(selectedType =>
+      //               restaurant.types.some(type => type.name === selectedType)
+      //           );
+      //       });
       //   }
-      //   console.log('finisce');
-      // },
 
-      selectType() {
-        const selectedTypes = Object.values(this.store.typesSelected);
-
-        if (selectedTypes.length === 0) {
-            this.restaurants = this.originalRestaurants;
-        } else {
-            this.restaurants = this.originalRestaurants.filter(restaurant => {
-                // Verifica che ogni tipo selezionato sia presente nei tipi del ristorante
-                return selectedTypes.every(selectedType =>
-                    restaurant.types.some(type => type.name === selectedType)
-                );
-            });
-        }
-
-      }
+      // }
     },
     mounted(){
       this.getApi();
+      console.log(this.store.typesSelected);
     }
   }
   
@@ -93,15 +71,15 @@
 <template>
   <div class="my_padding my_h">
     <h1 class="text-center mt-4 mb-5 fw-bold text-light">Tutti i nostri ristoranti</h1>
-    <div v-if="redyReedTypes && redyReedRestaurants" class="checkbox_container d-flex justify-content-center">
+    <div v-if="redyReedTypes && store.redyReedRestaurants" class="checkbox_container d-flex justify-content-center">
       <TypeSelector 
         :types="types"
-        @typeChek="selectType()"
+        @typeChek="store.selectType()"
       />
     </div>
     <div class="container pb-3">
-      <div v-if="redyReedTypes && redyReedRestaurants" class="card_container d-flex flex-wrap justify-content-center">
-        <RestaurantCard v-for="restaurant in restaurants" :key="restaurant.id"
+      <div v-if="redyReedTypes && store.redyReedRestaurants" class="card_container d-flex flex-wrap justify-content-center">
+        <RestaurantCard v-for="restaurant in store.restaurants" :key="restaurant.id"
         :restaurant="restaurant"
         />
       </div>

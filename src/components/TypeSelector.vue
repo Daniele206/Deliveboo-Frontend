@@ -24,6 +24,7 @@
         }else{
           this.store.typesSelected[i] = nameType;
         }
+        console.log(this.store.typesSelected);
         this.$emit('typeChek');
       }
     }
@@ -35,7 +36,8 @@
     <h6 class="text-light fw-bold mb-3 text-center">Filtro per tipologia</h6>
     <div class="btn-group justify-content-center align-items-center flex-wrap" role="group" aria-label="Basic checkbox toggle button group">
       <div  v-for="(oneType, i) in types" :key="oneType.id" class="mx-2 my-1">
-        <input @click="slectType(oneType.name, i)" type="checkbox" class="btn-check my_w" :id="'btncheck' + i" autocomplete="off">
+        <input v-if="this.store.typesSelected[i] === (oneType.name)" @click="slectType(oneType.name, i)" type="checkbox" class="btn-check my_w" :id="'btncheck' + i" autocomplete="off" checked>
+        <input v-else @click="slectType(oneType.name, i)" type="checkbox" class="btn-check my_w" :id="'btncheck' + i" autocomplete="off">
         <label class="btn btn-outline-warning my_w text-capitalize" :for="'btncheck' + i">{{ oneType.name }}</label>
       </div>
     </div>

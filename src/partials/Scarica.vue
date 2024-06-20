@@ -22,7 +22,7 @@
             Scarica l’app di LOGO e ordina dove vuoi, qualunque cosa desideri.
           </p>
           <div class="mb-5">
-            <img class="w-100" src="/src/assets/img/cosi.png" alt="">
+            <img src="/src/assets/img/cosi.png" alt="">
           </div>
         </div>
 
