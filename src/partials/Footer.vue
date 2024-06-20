@@ -7,13 +7,13 @@ export default {};
     <div class="container flex-wrap">
       <div class="row">
         <div class="col">
-          <h4>LET'S GET TOGHETHER</h4>
+          <h4>INCONTRIAMOCI</h4>
           
 
-          <ul class="">
+          <ul class=" fw-medium">
             <li><span><i class="fa-solid fa-location-dot"></i></span>Via Gherardo Luigi, 24</li>
-            <li><span><i class="fa-solid fa-clock"></i></span>DOM 11:00-24:00</li>
-            <li><span><i class="fa-solid fa-bag-shopping"></i></span>DOM 01:00-03:00 </li>
+            <li><span><i class="fa-solid fa-clock"></i></span>LUN-SAB 11:00-24:00</li>
+            <li><span><i class="fa-solid fa-bag-shopping"></i></span>DOM 11:00-03:00 </li>
             <li><span><i class="fa-solid fa-phone-volume"></i></span>+39 3543653625 </li>
             
 
@@ -33,11 +33,11 @@ export default {};
         <div class="col">
           <h4>CHI SIAMO</h4>
           
-          <ul class="">
-            <li> <a href="">Via Gherardo Luigi, 24</a></li>
-            <li><a href="">DOM 11:00-24:00</a></li>
-            <li><a href="">DOM 01:00-03:00 </a> </li>
-            <li><a href="">+39 3543653625</a></li>
+          <ul class=" fw-medium">
+            <li> <a href=""> La nostra storia</a></li>
+            <li><a href="">Il nostro team</a></li>
+            <li><a href="">Il nostro cibo </a> </li>
+            <li><a href="">Opportunità di lavoro</a></li>
             
 
           </ul>
@@ -45,11 +45,11 @@ export default {};
         <div class="col">
           <h4>I NOSTRI MENU</h4>
           
-          <ul class="">
-            <li> <a href="">Via Gherardo Luigi, 24</a></li>
-            <li><a href="">DOM 11:00-24:00</a></li>
-            <li><a href="">DOM 01:00-03:00 </a> </li>
-            <li><a href="">+39 3543653625</a></li>
+          <ul class=" fw-medium">
+            <li> <a href="">Hamburger di manzo</a></li>
+            <li><a href="">Hamburger di pollo</a></li>
+            <li><a href="">Hamburger a base vegetale </a> </li>
+            <li><a href="">Bevande</a></li>
             
 
           </ul>
@@ -57,14 +57,26 @@ export default {};
         <div class="col">
           <h4>INSTAGRAM</h4>
           <div class=" d-flex">
-            <div class="boxettino"></div>
-            <div class="boxettino"></div>
-            <div class="boxettino"></div>
+            <div class="boxettino">
+              <img src="/src/assets/img/hamburger-gourmet.png" alt="hamburger-gourmet.png">
+            </div>
+            <div class="boxettino">
+              <img src="/src/assets/img/ham-3-g.png" alt="ham-3-g.png">
+            </div>
+            <div class="boxettino">
+              <img src="/src/assets/img/ham-1.png" alt="ham-1.png">
+            </div>
           </div>
           <div class=" d-flex">
-            <div class="boxettino"></div>
-            <div class="boxettino"></div>
-            <div class="boxettino"></div>
+            <div class="boxettino">
+              <img src="/src/assets/img/ham-3-g.png" alt="ham-3-g.png">
+            </div>
+            <div class="boxettino">
+              <img src="/src/assets/img/ham-1.png" alt="ham-1.png">
+            </div>
+            <div class="boxettino">
+              <img src="/src/assets/img/hamburger-gourmet.png" alt="hamburger-gourmet.png">
+            </div>
           </div>
         </div>
       </div>
@@ -73,20 +85,17 @@ export default {};
     
 
     
-    <div class="my_line container">
-      
-    </div>
+    <div class="my_line container"></div>
 
 
-    <div class="container d-flex justify-content-between">
+    <div class="container d-flex justify-content-between flex-wrap">
 
-      <div class=" d-flex my-3">
+      <div class=" d-flex my-3 fw-medium">
         <div><i class="fa-regular fa-copyright"></i></div> 
         <p>2024Deliverboo All ReservedRigths</p>
       </div>
-
       <div>
-        <ul class=" d-flex my_links my-3 ">
+        <ul class=" d-flex my_links my-3  fw-medium ">
           <li><a href="#">About</a></li>
           <li><a href="#">Delivery</a></li>
           <li><a href="#">Contacts</a></li>
@@ -108,6 +117,9 @@ export default {};
   background-repeat: no-repeat;
   background-size: cover;
 }
+img{
+  max-width: 100%;
+}
 
 .overlay {
   background-color: rgba(0, 0, 0, 0.1); 
@@ -119,10 +131,10 @@ export default {};
   padding: 0 20px;
 }
 .boxettino{
-  background-color: #007bff;
+  
   height: 90px;
   width: 90px;
-  border: 1px solid black;
+  object-fit: contain;
 }
 h4{
   color: #EE4444;
@@ -212,6 +224,9 @@ a {
 
   .col h4 {
     font-size: 1.2em;
+  }
+  .col li{
+    flex-direction: column;
   }
 
   .col p {
