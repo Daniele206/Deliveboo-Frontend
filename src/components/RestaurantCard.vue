@@ -12,7 +12,7 @@
   <div class="card-body">
     <h2 class="card_title fw-bold">{{ restaurant.name }}</h2>
     <img class="card_img" v-if="restaurant.img" :src="restaurant.img" :alt="restaurant.name">
-    <img class="card_img" v-else src="/src/assets/img/placeholder.jpg" :alt="restaurant.name">
+    <img class="card_img" v-else :src="restaurant.image" :alt="restaurant.name">
     <h6 class="card_address">{{ restaurant.address }}</h6>
     <div class="types_container" v-if="restaurant.types.length > 0">
       <h5 class="fw-bold">Tipologie di cibo</h5>
