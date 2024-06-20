@@ -18,7 +18,7 @@ export default {
   <div class="fixer">
     <header class="container">
       <div class="row align-content-center header_d">
-        <router-link class="col col-5 logo p-0 d-flex text-decoration-none" :to="{name: 'home'}" @click="store.typesSelected = {}">
+        <router-link class="col col-5 logo p-0 d-flex text-decoration-none" :to="{name: 'home'}" @click="store.typesSelected = {}, store.restaurants = store.originalRestaurants">
           <img src="/src/assets/img/logo.jpg" alt="Logo" class="logo_img"/>
           <h1 class="text_my_red fw-bold ps-2 lh_header">DeliveBoo</h1>
         </router-link>
