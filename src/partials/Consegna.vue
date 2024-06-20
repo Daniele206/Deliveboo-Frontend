@@ -12,7 +12,7 @@
 
   <div class="my-text">
     <div class="my_img">
-      <img src="/src/assets/img/wave.svg" alt="">
+      <img src="/src/assets/img/wave.svg" alt="wave1">
     </div>
     
     <div class="container consegna d-flex flex-column align-items-center justify-content-center justify-content-lg-start mt-3">
@@ -31,27 +31,27 @@
       <div class="icon d-flex flex-column flex-md-row align-items-center mt-md-0 pb-4">
         <!-- prima icona -->
         <div class="mb-4 mb-md-0 mx-md-4 text-center">
-          <img src="/src/assets/img/hamb.png" alt="">
-          <p class="text-black">I migliori ristoranti della tua città</p>
+          <img class="w-25" src="/src/assets/img/hamb.png" alt="panino">
+          <p class="text-black">I migliori ristoranti</p>
         </div>
 
 
         <!-- seconda icona -->
         <div class="mb-4 mb-md-0 mx-md-4 text-center">
-          <img src="/src/assets/img/rider.png" alt="">
+          <img class="w-25" src="/src/assets/img/rider.png" alt="Consegna">
           <p class="text-black">Consegna rapida</p>
         </div>
 
         <!-- terza icona -->
         <div class="mb-4 mb-md-0 mx-md-4 text-center">
-          <img src="/src/assets/img/gnam.png" alt="">
+          <img class="w-25" src="/src/assets/img/gnam.png" alt="Gusta">
           <p class="text-black">Gusta il tuo ordine!</p>
         </div>
         
       </div>
     </div>
     <div class="my_img second_img">
-      <img src="/src/assets/img/wave.svg" alt="">
+      <img src="/src/assets/img/wave.svg" alt="wave">
     </div>
   </div>
 </section>
@@ -134,12 +134,12 @@
   .my_img {
     img {
       width: 100%;
-      transform: rotate(-180deg);
+      transform: rotate(-180deg) translateY(5px);
     }
   }
   .second_img{
     img{
-      transform: rotate(-360deg);
+      transform: rotate(-360deg) translateY(5px);
     }
   }
 }

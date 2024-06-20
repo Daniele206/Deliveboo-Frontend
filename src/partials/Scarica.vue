@@ -22,13 +22,13 @@
             Scarica l’app di LOGO e ordina dove vuoi, qualunque cosa desideri.
           </p>
           <div class="mb-5">
-            <img src="/src/assets/img/cosi.png" alt="">
+            <img class="w-100" src="/src/assets/img/cosi.png" alt="">
           </div>
         </div>
 
         <div>
           <p>
-            <img src="/src/assets/img/cell.png" alt="">
+            <img class="w-100" src="/src/assets/img/cell.png" alt="">
           </p>
         </div>
 
