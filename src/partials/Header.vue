@@ -10,7 +10,7 @@ export default {
       <div class="row align-content-center header_d">
         <router-link class="col col-5 logo p-0 d-flex text-decoration-none" :to="{name: 'home'}">
           <img src="/src/assets/img/logo.jpg" alt="Logo" class="logo_img"/>
-          <h1 class="text_my_red fw-bold ps-2 lh_header">DeliverBoo</h1>
+          <h1 class="text_my_red fw-bold ps-2 lh_header">DeliveBoo</h1>
         </router-link>
         <nav class="nav col col-7 d-flex justify-content-end p-0">
           <router-link class="my_btn text-decoration-none" :to="{name: 'restaurants'}">Ristoranti</router-link>
