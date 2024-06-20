@@ -49,7 +49,7 @@ export default {
   font-size: 2rem;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 575px) {
   .header_d{
     border-radius: 0;
     margin-top: 0;

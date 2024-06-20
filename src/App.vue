@@ -25,7 +25,7 @@ export default {
 body {
   background-color: $primary_red;
   .fixer_pt{
-    padding-top: 100px;
+    // padding-top: 100px;
   }
 }
 </style>
