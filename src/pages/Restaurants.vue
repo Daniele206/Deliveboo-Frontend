@@ -90,7 +90,7 @@
 </script>
 
 <template>
-  <div class="container pb-3">
+  <div>
     <h1 class="text-center mt-4 mb-5 fw-bold text-light">Tutti i nostri ristoranti</h1>
     <div v-if="redyReedTypes && redyReedRestaurants" class="checkbox_container d-flex justify-content-center">
       <TypeSelector 
@@ -98,12 +98,14 @@
         @typeChek="selectType()"
       />
     </div>
+    <div class="container pb-3">
     <div v-if="redyReedTypes && redyReedRestaurants" class="card_container d-flex flex-wrap justify-content-center">
       <RestaurantCard v-for="restaurant in restaurants" :key="restaurant.id"
       :restaurant="restaurant"
       />
     </div>
     <h4 v-else class="d-flex justify-content-center mt-3 my_h">Loading...</h4>
+    </div>
   </div>
 </template>
 
