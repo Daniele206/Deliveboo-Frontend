@@ -1,77 +1,100 @@
 <script>
   export default {
-    
+
   }
 </script>
 
 <template>
-  <section class="container-fluid">
-    <div class="row d-flex justify-content-center position-relative">
-
-      <div class="col-sm-12 col-md-6 mt-4 img-container">
-        <img src="/src/assets/img/hamburger.png" alt="">
+  <section>
+    <div class="my_container">
+      <div class="title">
+        <div class="my_bg_black text-white">
+          <div class="container content-wrapper">
+            <div class="text-content">
+              <h1 class="fame">HAI FAME?</h1>
+              <h1>TI BASTA DELIVEBOO!</h1>
+            </div>
+            <div class="logo d-none d-md-block">
+              <img src="/src/assets/img/logo_hero.png" alt="">
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="col-sm-12 col-md-6 text-center mt-4 title text-overlay d-flex flex-column justify-content-center">
-        <h1>HAI FAME?</h1>
-        <h1 class="mt-4">TI BASTA DELIVEBOO!</h1>
-      </div>
-
-    </div>
-
-    <div>
-      <p class="text text-center mt-5">Ordina online dai tuoi ristoranti preferiti</p>
+      <img src="https://ilfattoalimentare.it/wp-content/uploads/2022/11/Depositphotos_139278610_L.jpg" alt="">
     </div>
   </section>
 </template>
 
+
+
+
 <style lang="scss" scoped>
 @use "../assets/scss/variables" as *;
 
-.container-fluid {
-  // height: 100vh;
-  .img-container {
-    position: relative;
-    img {
-      max-width: 100%;
-    }
+.my_container {
+  position: relative;
+  height: 100vh; 
+  width: 100%;  
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
   }
-  
+
   .title {
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    
+    .fame {
+      margin-bottom: 30px;
+    }
+    
     h1 {
-      color: $text-w;
-      font-size: 4.5rem;
-    }
-  }
-  
-  .text{
-      color: $text-w;
-      font-size: 3rem;
-      max-width: 80%;
-      margin: 0 auto;
+      font-size: 3.7rem;
+      font-weight: bold;
+      width: 350px;
+      margin-left: 0;
     }
 
-  @media (max-width: 767px) {
+    .my_bg_black {
+      background-color: rgba(0, 0, 0, 0.50); 
+      height: 280px;
+      width: 100%;
+      padding-top: 15px;
+      
+      .content-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-  .text-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(0, 0, 0, 0.5); // Optional: background for better readability
-      padding: 10px;
-      border-radius: 5px;
-      h1 {
-      color: $text-w;
-      font-size: 3rem;
-    }
-    }
+        @media screen and (max-width: 576px) {
+          flex-direction: column;
+          align-items: center;
+          
+          h1 {
+            width: auto;
+            text-align: center;
+          }
+        }
+      }
 
-    .text{
-      max-width: 100%;
-      font-size: 3rem;
+      .text-content {
+        flex: 1;
+        padding-left: 20px;
+
+        @media screen and (max-width: 576px) {
+          padding-left: 0;
+        }
+      }
+
+      .logo {
+        padding-right: 20px;
+        img {
+          width: 130px;
+        }
+      }
     }
-   
   }
 }
 </style>

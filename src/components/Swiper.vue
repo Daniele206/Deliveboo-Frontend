@@ -20,6 +20,10 @@
 
 
 <template>
+    <div>
+      <p class="text text-center">Ordina online dai tuoi ristoranti preferiti</p>
+    </div>
+
   <swiper
     :slidesPerView="3"
     :spaceBetween="30"
@@ -40,6 +44,14 @@
 <style lang="scss" scoped>
 @use "../assets/scss/variables" as *;
 
+.text{
+    color: $text-w;
+    font-size: 3rem;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
 
 .swiper {
   width: 100%;
