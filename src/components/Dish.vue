@@ -8,9 +8,13 @@
 </script>
 
 <template>
-  <div class="card mx-3 my-4" style="width: 18rem;">
+  <div v-if="dish.is_visible == 1" class="card mx-3 my-4" style="width: 18rem;">
   <div class="card-body">
     <h2>{{ dish.name }}</h2>
+    <img v-if="dish.image != null" :src="dish.image" alt="">
+    <p v-else>Non ci sono immagini</p>
+    <p>{{ dish.description }}</p>
+    <span>&euro;{{ dish.price }}</span>
   </div>
 </div>
 </template>

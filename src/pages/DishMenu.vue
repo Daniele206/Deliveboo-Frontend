@@ -24,17 +24,19 @@
       return{
         store,
         savedMenu: [],
+        restaurantName: '',
       }
     },
 
     methods:{
-      saveMenu(){
+      saveData(){
         this.savedMenu = JSON.parse(localStorage.getItem('dishes'));
+        this.restaurantName = localStorage.getItem('restaurantName');
       }
     },
 
     mounted(){
-      this.saveMenu()
+      this.saveData()
     }
   }
   
@@ -42,9 +44,9 @@
 
 <template>
   <div class="my_padding my_h">
-    <h1 class="text-center mt-4 mb-5 fw-bold text-light">Menu</h1>
-
-    <div class="container pb-3">
+    <h1 class="text-center mt-4 mb-2 fw-bold text-light">Menu</h1>
+    <h2 class="text-center mb-5 text-light">{{ restaurantName }}</h2>
+    <div class="container d-flex flex-wrap justify-content-center pb-3">
         <Dish v-for="dish in savedMenu" :key="dish.id" :dish = "dish"/>
     </div>
 
