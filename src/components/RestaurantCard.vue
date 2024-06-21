@@ -1,9 +1,30 @@
 <script>
+  import { store } from '../data/store';
+
   export default {
     name: 'restaurant-card',
     props:{
       restaurant: Object
-    }
+    },
+
+    data(){
+      return{
+        store,
+      }
+    },
+
+    methods:{
+      setMenu(restaurant){
+        if(localStorage.getItem('dishes') == null){
+        localStorage.setItem('dishes', JSON.stringify(restaurant.dishes));
+        }
+        else{
+          localStorage.removeItem('dishes');
+          localStorage.setItem('dishes', JSON.stringify(restaurant.dishes));
+        }
+      },
+    },
+
   }
 </script>
 
@@ -26,7 +47,7 @@
     <div class="types_container fw-bold" v-else>
       <h5 class="fw-bold">Nessuna tipologia...</h5>
     </div>
-    <button class="my_btn">Menú</button>
+    <router-link @click="setMenu(restaurant)" :to = "{name: 'dishmenu'}" class="my_btn">Menú</router-link>
   </div>
 </div>
 </template>

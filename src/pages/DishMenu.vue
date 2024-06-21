@@ -8,61 +8,33 @@
   // store
 
   // components
-  import RestaurantCard from '../components/RestaurantCard.vue';
-  import TypeSelector from '../components/TypeSelector.vue';
+  import Dish from '../components/Dish.vue';
+  // import TypeSelector from '../components/TypeSelector.vue';
   // components
 
 
   export default {
-    name: 'restaurants',
+    name: 'dishes',
 
     components:{
-      RestaurantCard,
-      TypeSelector
+      Dish,
     },
 
     data(){
       return{
         store,
-        // restaurants: [],
-        // originalRestaurants: [],
-        types: [],
-        redyReedTypes: false
+        savedMenu: [],
       }
     },
 
     methods:{
-      getApi(){
-        axios.get(this.store.apiUrl + '/types')
-          .then(result => {
-            this.redyReedTypes = true;
-            this.types = result.data;
-            console.log(this.types);
-          })
-          .catch(error => {
-            console.log(error);
-          })
-      },
-
-      // selectType() {
-      //   const selectedTypes = Object.values(this.store.typesSelected);
-
-      //   if (selectedTypes.length === 0) {
-      //       this.restaurants = this.originalRestaurants;
-      //   } else {
-      //       this.restaurants = this.originalRestaurants.filter(restaurant => {
-      //           // Verifica che ogni tipo selezionato sia presente nei tipi del ristorante
-      //           return selectedTypes.every(selectedType =>
-      //               restaurant.types.some(type => type.name === selectedType)
-      //           );
-      //       });
-      //   }
-
-      // }
+      saveMenu(){
+        this.savedMenu = JSON.parse(localStorage.getItem('dishes'));
+      }
     },
+
     mounted(){
-      this.getApi();
-      console.log(this.store.typesSelected);
+      this.saveMenu()
     }
   }
   
@@ -70,42 +42,12 @@
 
 <template>
   <div class="my_padding my_h">
+    <h1 class="text-center mt-4 mb-5 fw-bold text-light">Menu</h1>
 
-    <h1 class="text-center mt-4 mb-5 fw-bold text-light">Tutti i nostri ristoranti</h1>
-    <div v-if="redyReedTypes && store.redyReedRestaurants" class="checkbox_container d-flex justify-content-center">
-      <TypeSelector 
-        :types="types"
-        @typeChek="store.selectType()"
-      />
-    </div>
     <div class="container pb-3">
-      <div v-if="redyReedTypes && store.redyReedRestaurants" class="card_container d-flex flex-wrap justify-content-center">
-        <RestaurantCard v-for="restaurant in store.restaurants" :key="restaurant.id"
-        :restaurant="restaurant"
-        />
-      </div>
-      <!-- <div v-else class="d-flex justify-content-center my_h">
-        <div  class="loader mt-5 "></div>
-      </div> -->
-      <div v-else class="d-flex justify-content-center  ">
-        <div id="cooking">
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          <div id="area">
-            <div id="sides">
-                <div id="pan"></div>
-                <div id="handle"></div>
-            </div>
-            <div id="pancake">
-                <div id="pastry"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <Dish v-for="dish in savedMenu" :key="dish.id" :dish = "dish"/>
     </div>
+
   </div>
 
 </template>
