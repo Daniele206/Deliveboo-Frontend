@@ -72,7 +72,7 @@
     }"
   >
     <swiper-slide v-for="(oneType, i) in types" :key="oneType.id">
-      <router-link class="my_btn text-decoration-none" :to="{name: 'restaurants'}" @click="slectType(oneType.name, i)">{{ oneType.name }}</router-link>
+      <router-link class="my_btn my_border text-decoration-none" :to="{name: 'restaurants'}" @click="slectType(oneType.name, i)">{{ oneType.name }}</router-link>
     </swiper-slide>
   </swiper>
 </template>
@@ -115,5 +115,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.my_border{
+  border: white 2px solid;
+  border-radius: 25px;
 }
 </style>
