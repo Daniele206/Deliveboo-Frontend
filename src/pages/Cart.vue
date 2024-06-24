@@ -90,7 +90,7 @@
     </div>
 
 
-    <div class=" d-flex justify-content-center align-items-center my-3">
+    <div class=" d-flex justify-content-center align-items-center my-2">
       <button type="button" class="btn btn-danger">procedi al pagamento </button>
     </div>
 
@@ -129,6 +129,36 @@
   height: 60px;
   border-top: 2px solid grey;
   border-bottom:2px solid grey ;
+}
+@media (max-width: 767px) {
+  .table thead {
+    display: none;
+  }
+
+  .table, .table tbody, .table tr, .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tr {
+    margin-bottom: 15px;
+  }
+
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
 }
 
 
