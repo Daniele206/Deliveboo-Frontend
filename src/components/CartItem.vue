@@ -1,6 +1,6 @@
 <script>
-  export default {
-    name: 'restaurant-card',
+    export default {
+    name: 'Cart-Item',
     props:{
       dish: Object
     },
@@ -35,6 +35,7 @@
             this.dishQuantity.push({ [dish.id]: this.nItem + 1 });
             localStorage.setItem('cart', JSON.stringify(this.arrayData));
             localStorage.setItem('dishQuantity', JSON.stringify(this.dishQuantity));
+            this.$emit('update1');
           } else {
             return alert('Non puoi aggiungere un piatto di un altro ristorante');
           }
@@ -67,6 +68,7 @@
             }
             localStorage.setItem('cart', JSON.stringify(this.arrayData));
             localStorage.setItem('dishQuantity', JSON.stringify(this.dishQuantity));
+            this.$emit('update2');
           }else{
             return alert('Questo piatto non é nel carrello')
           }
@@ -93,58 +95,63 @@
 </script>
 
 <template>
-  <div v-if="dish.is_visible == 1" class="card mx-3 my-4" style="width: 18rem;">
-  <div class="card-body">
-    <h2 class="card_title">{{ dish.name }}</h2>
-    <img class="card_img" :src="dish.image" :alt="dish.name">
-    <p class="card_description">{{ dish.description }}</p>
-    <div class="d-flex align-items-end justify-content-between">
-      <span>&euro;{{ dish.price }}</span>
-      <div class="d-flex">
-        <button v-if="nItem > 0" @click="removeItem(dish), count(dish)" class="my_btn me-2"><i class="fa-solid fa-trash-can"></i></button>
-        <button v-if="nItem === 0" @click="addItem(dish), count(dish)" class="my_btn"><i class="fa-solid fa-cart-plus"></i></button>
-        <button v-else @click="addItem(dish), count(dish)" class="my_btn">{{ nItem }} +</button>
-      </div>
-    </div>
+  <div class="w-100">
+    <ul class="d-flex justify-content-between ul_h list-unstyled">
+      <li class="line_name">
+        <h4>{{ dish.name }}</h4>
+      </li>
+      <li class="line_description">
+        {{ dish.description }}
+      </li>
+      <li class="line_image">
+        <img class="card_img" :src="dish.image" :alt="dish.name">
+      </li>
+      <li class="line_quantity">
+        <div class="d-flex align-items-center">
+          <button @click="removeItem(dish), count(dish)" class="my_btn"><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="ms-1 ms-2">
+            {{ nItem }}
+          </div>
+          <button @click="addItem(dish), count(dish)" class="my_btn"><i class="fa-solid fa-chevron-up"></i></button>
+        </div>
+      </li>
+      <li class="line_price d-flex justify-content-end">&euro;{{ dish.price * nItem }}</li>
+    </ul>
   </div>
-</div>
 </template>
 
 <style lang="scss" scoped>
-.card_title{
-  height: 80px;
+
+.ul_h{
+  max-height: 130px;
 }
 
-.card_img{
+.my_btn {
+  padding: 10px;
+}
+
+.card_img {
   width: 100%;
   aspect-ratio: 14/9;
   object-fit: cover;
   margin-bottom: 30px;
 }
 
-.card_description{
-  height: 60px;
+.line_name{
+  width: 200px;
 }
-
-.my_btn{
-  padding-top: 25px;
-  padding-bottom: 25px;
-  height: 40px;
-  margin: 0;
+.line_description{
+  width: 200px;
+  overflow: auto;
+  margin-bottom: 20px;
 }
-
-.card_img{
-  width: 100%;
-  aspect-ratio: 14/9;
-  object-fit: cover;
-  margin-bottom: 30px;
+.line_image{
+  width: 160px;
 }
-
-.card_address{
-  height: 40px;
+.line_quantity{
+  width: 120px;
 }
-
-.types_container{
-  height: 200px;
+.line_price{
+  width: 100px;
 }
 </style>
