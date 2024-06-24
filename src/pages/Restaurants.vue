@@ -24,8 +24,6 @@
     data(){
       return{
         store,
-        // restaurants: [],
-        // originalRestaurants: [],
         types: [],
         redyReedTypes: false
       }
@@ -44,25 +42,9 @@
           })
       },
 
-      // selectType() {
-      //   const selectedTypes = Object.values(this.store.typesSelected);
-
-      //   if (selectedTypes.length === 0) {
-      //       this.restaurants = this.originalRestaurants;
-      //   } else {
-      //       this.restaurants = this.originalRestaurants.filter(restaurant => {
-      //           // Verifica che ogni tipo selezionato sia presente nei tipi del ristorante
-      //           return selectedTypes.every(selectedType =>
-      //               restaurant.types.some(type => type.name === selectedType)
-      //           );
-      //       });
-      //   }
-
-      // }
     },
     mounted(){
       this.getApi();
-      console.log(this.store.typesSelected);
     }
   }
   
@@ -84,9 +66,6 @@
         :restaurant="restaurant"
         />
       </div>
-      <!-- <div v-else class="d-flex justify-content-center my_h">
-        <div  class="loader mt-5 "></div>
-      </div> -->
       <div v-else class="d-flex justify-content-center  ">
         <div id="cooking">
           <div class="bubble"></div>
