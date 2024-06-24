@@ -15,16 +15,8 @@
 
     methods:{
       setMenu(restaurant){
-        if(localStorage.getItem('dishes') == null){
         localStorage.setItem('dishes', JSON.stringify(restaurant.dishes));
         localStorage.setItem('restaurantName', restaurant.name);
-        }
-        else{
-          localStorage.removeItem('dishes');
-          localStorage.removeItem('restaurantName');
-          localStorage.setItem('dishes', JSON.stringify(restaurant.dishes));
-          localStorage.setItem('restaurantName', restaurant.name);
-        }
       },
     },
 
