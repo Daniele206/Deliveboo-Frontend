@@ -101,9 +101,17 @@
     <div class="d-flex align-items-end justify-content-between">
       <span>&euro;{{ dish.price }}</span>
       <div class="d-flex">
-        <button v-if="nItem > 0" @click="removeItem(dish), count(dish)" class="my_btn me-2"><i class="fa-solid fa-trash-can"></i></button>
+
+        
+        
         <button v-if="nItem === 0" @click="addItem(dish), count(dish)" class="my_btn"><i class="fa-solid fa-cart-plus"></i></button>
-        <button v-else @click="addItem(dish), count(dish)" class="my_btn">{{ nItem }} +</button>
+        <div v-else class="d-flex align-items-center ">
+          <button  @click="removeItem(dish), count(dish)" class="my_btn"> <i class="fa-solid fa-chevron-down"></i></button>
+          <span class="  m-2 ">{{ nItem }}</span>
+          <button  @click="addItem(dish), count(dish)" class="my_btn"> <i class="fa-solid fa-chevron-up"></i></button>
+
+        </div>
+        
       </div>
     </div>
   </div>
@@ -127,8 +135,9 @@
 }
 
 .my_btn{
-  padding-top: 25px;
-  padding-bottom: 25px;
+  // padding-top: 15px;
+  // padding-bottom: 15px;
+  padding:15px 10px;
   height: 40px;
   margin: 0;
 }
@@ -147,4 +156,6 @@
 .types_container{
   height: 200px;
 }
+
+
 </style>
