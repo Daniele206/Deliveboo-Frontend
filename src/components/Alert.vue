@@ -9,7 +9,6 @@
       return{
         store,
         restaurant: {},
-        restaurantName: '',
         cart: JSON.parse(localStorage.getItem('cart')),
       }
     },
@@ -29,6 +28,7 @@
         });
         localStorage.setItem('dishes', JSON.stringify(this.restaurant.dishes))
         localStorage.setItem('restaurantName', this.restaurant.name)
+        location.reload();
       }
     }
   }

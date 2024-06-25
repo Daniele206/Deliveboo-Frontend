@@ -13,6 +13,12 @@
         store
       }
     },
+
+    methods:{
+      updatePage(){
+        location.reload();
+      }
+    }
   };
 </script>
 
@@ -34,7 +40,7 @@
           </button>
 
           <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-            <button type="button" class="btn-close mt-3 fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button @click="updatePage()" type="button" class="btn-close mt-3 fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             <CanvasCart />
           </div>
         </nav>

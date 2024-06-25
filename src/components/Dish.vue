@@ -1,8 +1,15 @@
 <script>
+
+  import  Alert from '../components/Alert.vue';
+
   export default {
     name: 'restaurant-card',
     props:{
       dish: Object
+    },
+
+    components:{
+      Alert,
     },
 
     data(){
@@ -36,7 +43,7 @@
             localStorage.setItem('cart', JSON.stringify(this.arrayData));
             localStorage.setItem('dishQuantity', JSON.stringify(this.dishQuantity));
           } else {
-            return alert('Non puoi aggiungere un piatto di un altro ristorante');
+            document.getElementById('alert_btn').click();
           }
         }
       },
@@ -93,6 +100,8 @@
 </script>
 
 <template>
+  <button id="alert_btn" type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+  <Alert />
   <div v-if="dish.is_visible == 1" class="card mx-3 my-4" style="width: 18rem;">
   <div class="card-body">
     <h2 class="card_title">{{ dish.name }}</h2>

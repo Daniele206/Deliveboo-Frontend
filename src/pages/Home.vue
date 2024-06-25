@@ -1,7 +1,6 @@
 <script>
 import Hero from "../partials/Hero.vue"
 import Swiper from "../components/Swiper.vue";
-import Alert from "../components/Alert.vue";
 import Consegna from "../partials/Consegna.vue";
 import Scarica from "../partials/Scarica.vue";
 
@@ -19,7 +18,6 @@ import Scarica from "../partials/Scarica.vue";
       Swiper,
       Consegna,
       Scarica,
-      Alert,
     },
 
     data(){
@@ -56,11 +54,6 @@ import Scarica from "../partials/Scarica.vue";
   <Swiper 
   :types="types"
   />
-
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-  </button>
-  <Alert />
 
   <Consegna />
 
