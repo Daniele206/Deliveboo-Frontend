@@ -1,17 +1,19 @@
 <script>
   // store
   import { store } from '../data/store';
-  // store
+  import CanvasCart from '../components/CanvasCart.vue';
 
-export default {
-  name: "HeaderComponent",
-
-  data(){
-    return{
-      store
-    }
-  },
-};
+  export default {
+    name: "HeaderComponent",
+    components: {
+      CanvasCart,
+    },
+    data() {
+      return {
+        store
+      }
+    },
+  };
 </script>
 
 <template>
@@ -24,7 +26,17 @@ export default {
         </router-link>
         <nav class="nav col col-7 d-flex justify-content-end p-0">
           <router-link class="my_btn text-decoration-none" :to="{name: 'restaurants'}">Ristoranti</router-link>
-          <router-link class="my_btn text-decoration-none" :to="{name: 'cart'}"><i class="fa-solid fa-cart-shopping"></i></router-link>
+          <!-- <router-link class="my_btn text-decoration-none" :to="{name: 'cart'}"><i class="fa-solid fa-cart-shopping"></i></router-link> -->
+          
+          <!-- offcanvas -->
+          <button @click="store.getOrderList()" class="my_btn text-decoration-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasScrolling">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+
+          <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <button type="button" class="btn-close mt-3 fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <CanvasCart />
+          </div>
         </nav>
       </div>
     </header>
@@ -33,8 +45,12 @@ export default {
 
 <style scoped lang="scss">
 @use "../assets/scss/variables" as *;
+.offcanvas-end {
+    width: 50%;
+    overflow: auto;
+  }
 
-.fixer{
+.fixer {
   position: fixed;
   width: 100%;
   z-index: 999;
@@ -53,19 +69,26 @@ export default {
   height: 50px;
 }
 
-.lh_header{
+.lh_header {
   height: 50px;
   line-height: 50px;
   font-size: 2rem;
 }
 
+@media screen and (max-width: 768px) {
+  .offcanvas-end {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 575px) {
-  .header_d{
+  .header_d {
     border-radius: 0;
     margin-top: 0;
   }
-  .lh_header{
+  .lh_header {
     font-size: 1.3rem;
   }
 }
 </style>
+
