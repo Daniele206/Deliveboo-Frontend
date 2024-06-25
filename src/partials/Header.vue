@@ -35,11 +35,11 @@
           <!-- <router-link class="my_btn text-decoration-none" :to="{name: 'cart'}"><i class="fa-solid fa-cart-shopping"></i></router-link> -->
           
           <!-- offcanvas -->
-          <button @click="store.getOrderList()" class="my_btn text-decoration-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasScrolling">
+          <button @click="store.getOrderList()" class="my_btn text-decoration-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="offcanvasScrolling">
             <i class="fa-solid fa-cart-shopping"></i>
           </button>
 
-          <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+          <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
             <button @click="updatePage()" type="button" class="btn-close mt-3 fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             <CanvasCart />
           </div>
