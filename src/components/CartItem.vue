@@ -106,6 +106,9 @@
       <li class="line_image">
         <img class="card_img" :src="dish.image" :alt="dish.name">
       </li>
+      <li>
+        &euro;{{ dish.price }}
+      </li>
       <li class="line_quantity">
         <div class="d-flex align-items-center">
           <button @click="removeItem(dish), count(dish)" class="my_btn"><i class="fa-solid fa-chevron-down"></i></button>
