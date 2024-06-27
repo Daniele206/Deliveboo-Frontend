@@ -35,6 +35,11 @@ import { store } from '../data/store';
     },
 
     methods:{
+
+      closeCanvass(){
+        this.$emit('closeCanvass');
+      },
+
       sendOrders(){
         this.orderForm = document.getElementById('order-form');
         this.name = document.getElementById('name').value;
@@ -116,22 +121,22 @@ import { store } from '../data/store';
         <div v-if="store.checkCart()">
           <form id="order-form" class="form-control" @submit.prevent="sendOrders()">
             <label for="name">Nome</label>
-            <input type="text" id="name" class="form-control" placeholder="Nome">
+            <input type="text" id="name" class="form-control" placeholder="Nome" value="Daniele">
             <p id="error-name" class="text-danger"></p>
             <label for="mail">E-Mail</label>
-            <input type="email" id="mail" class="form-control" placeholder="E-Mail">
+            <input type="email" id="mail" class="form-control" placeholder="E-Mail" value="d@d.com">
             <p id="error-mail" class="text-danger"></p>
             <label for="telefon">Numero di telefono</label>
-            <input type="text" id="telefon" class="form-control" placeholder="Numero di telefono">
+            <input type="text" id="telefon" class="form-control" placeholder="Numero di telefono" value="1234567890">
             <p id="error-telefon" class="text-danger"></p>
             <label for="address">Indirizzo</label>
-            <input type="text" id="address" class="form-control" placeholder="Indirizzo">
+            <input type="text" id="address" class="form-control" placeholder="Indirizzo" value="Via tal dei tali 4">
             <p id="error-address" class="text-danger"></p>
             <button type="submit" class="my_btn ms-0 mt-3">Procedi al check-out</button>
           </form>
           <div class="d-flex justify-content-center align-items-center my-2">
             <!-- <button type="button" class="btn btn-danger">Procedi al pagamento</button> -->
-            <Payment id="payment" class="d-none" :data="data"/>
+            <Payment id="payment" class="d-none" :data="data" @closeCanvass1="closeCanvass()" @closeCanvass2="closeCanvass()"/>
           </div>
         </div>
       </div>

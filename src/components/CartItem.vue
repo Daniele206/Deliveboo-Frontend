@@ -100,10 +100,10 @@
       <li class="line_name">
         <h4>{{ dish.name }}</h4>
       </li>
-      <li class="line_description d-none d-lg-block">
+      <li class="line_description d-none d-xl-block">
         {{ dish.description }}
       </li>
-      <li class="line_image d-none d-lg-block">
+      <li class="line_image d-none d-xl-block">
         <img class="card_img" :src="dish.image" :alt="dish.name">
       </li>
       <li>

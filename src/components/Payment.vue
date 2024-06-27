@@ -34,18 +34,20 @@ export default {
           'mail': this.data.mail,
           'address': this.data.address,
           'telefon': this.data.telefon,
+          'subTotal': this.store.subTotal,
           'cart': JSON.parse(localStorage.getItem('cart')),
           'nonceToken': payload.nonce,
         }
         axios.post(this.store.apiUrl + '/sendOrders', this.sendData)
               .then( result => {
                 if(result.data.success===true){
-                  this.$router.push('/Success')
+                  this.$router.push('/Success');
                   // this.store.cartList=[];
-
+                  this.$emit('closeCanvass1');
                 }
                 else{
                   this.$router.push('/Notsuccess')
+                  this.$emit('closeCanvass2');
                 }
                 console.log(result.data);
                 console.log(result.data.success);
@@ -53,7 +55,7 @@ export default {
               .catch( error => {
                 console.log(error.message);
               })
-             console.log(this.data.success)
+            console.log(this.data.success)
       });
       
       
@@ -81,8 +83,6 @@ export default {
   <div>
     <div id="dropin-container"></div>
     <button id="submit-button" class="button button--small button--green" @click="submitPayment" :to="{name: 'Success'}">Purchase</button>
-    
-
   </div>
 </template>
 

@@ -16,32 +16,58 @@
     data(){
       return{
         store,
+        paymentCart: [],
+        paymentSubtotal: '',
+        orderList: [],
+      }
+    },
+
+    methods:{
+      getPayElement(){
+        localStorage.setItem('lastOrderCompact', JSON.stringify(this.store.cartList));
+        this.paymentCart = JSON.parse(localStorage.getItem('lastOrderCompact'));
+        localStorage.setItem('lastSubtotal', JSON.stringify(this.store.subTotal));
+        this.paymentSubtotal = JSON.parse(localStorage.getItem('lastSubtotal'));
+
+        localStorage.setItem('lastOrder', localStorage.getItem('cart'));
+
+        localStorage.removeItem('cart');
+        localStorage.removeItem('dishQuantity');
+      },
+
+      getPayElement2(){
+        this.paymentCart = JSON.parse(localStorage.getItem('lastOrderCompact'));
+        this.paymentSubtotal = JSON.parse(localStorage.getItem('lastSubtotal'));
+      }
+    },
+
+    mounted(){
+      if(localStorage.getItem('cart')){
+        this.getPayElement()
+      }else{
+        this.getPayElement2()
       }
     }
-
-   
-  
-    
-   
   }
 </script>
 
 <template>
   <div class="container my_padding my_h">
-   <h1>Ordine effettuato con successo</h1>
-   <PaymentItem v-for="cartItem in store.cartList" :key="cartItem.id" :dish = "cartItem" @update1="store.getPaymentList()" @update2="store.getPaymentList()"/>
-   <h2>Totale Ordine</h2>
-      <div class="container flex-column">
-        <div class="boxettino d-flex justify-content-between align-items-center">
-          <div>
-            Totale
-          </div>
-          <div>
-            &euro;{{ store.subTotal }}
+    <h1 class="text-center text-light fw-bold py-2">Ordine effettuato con successo</h1>
+    <div class="bg-white p-3 rounded-5">
+      <PaymentItem v-for="cartItem in paymentCart" :key="cartItem.id" :dish="cartItem" :orderList="orderList"/>
+      <h2>Totale Ordine</h2>
+        <div class="container flex-column">
+          <div class="boxettino d-flex justify-content-between align-items-center">
+            <div>
+              Totale
+            </div>
+            <div>
+              &euro;{{ paymentSubtotal }}
+            </div>
           </div>
         </div>
-      </div>
-
+    </div>
   </div>
 </template>
 

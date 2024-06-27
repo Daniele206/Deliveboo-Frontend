@@ -2,26 +2,23 @@
     export default {
     name: 'Payment-Item',
     props:{
-      dish: Object
+      dish: Object,
+      orderList: Array
     },
 
     data(){
       return{
         arrayData: [],
-        dishQuantity: [],
         nItem: 0
       }
     },
 
     methods:{
-      
-      
-
       count(dish){
         this.nItem = 0;
-        this.arrayData = JSON.parse(localStorage.getItem('cart'));
+        this.arrayData = JSON.parse(localStorage.getItem('lastOrder'));
         for (let i = 0; i < this.arrayData.length; i++) {
-          if (JSON.stringify(this.arrayData[i]) === JSON.stringify(dish)) {
+          if (this.arrayData[i].id === dish.id) {
             this.nItem++
           }
         }
@@ -29,8 +26,8 @@
     },
 
     mounted(){
-      if(localStorage.getItem('cart')){
-        this.count(this.dish)
+      if(localStorage.getItem('lastOrder')){
+        this.count(this.dish);
       }
     }
   }
@@ -38,7 +35,7 @@
 
 <template>
   <div class="w-100">
-    <ul class="d-flex justify-content-between ul_h list-unstyled">
+    <ul class="d-flex justify-content-between ul_h list-unstyled my_br">
       <li class="line_name">
         <h4>{{ dish.name }}</h4>
       </li>
@@ -48,7 +45,7 @@
       <li class="line_image d-none d-lg-block">
         <img class="card_img" :src="dish.image" :alt="dish.name">
       </li>
-     
+      <li class="line_price d-flex justify-content-end">&euro;{{ dish.price }}</li>
       <li class="line_quantity">
         <div class="d-flex align-items-center">
         
@@ -64,6 +61,10 @@
 </template>
 
 <style lang="scss" scoped>
+
+.my_br{
+  border-bottom: 1px solid black;
+}
 
 .ul_h{
   max-height: 130px;
