@@ -35,7 +35,7 @@
           <!-- <router-link class="my_btn text-decoration-none" :to="{name: 'cart'}"><i class="fa-solid fa-cart-shopping"></i></router-link> -->
           
           <!-- offcanvas -->
-          <button @click="store.getOrderList()" class="my_btn text-decoration-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="offcanvasScrolling">
+          <button @click="store.getOrderList(), store.checkCart()" class="my_btn text-decoration-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="offcanvasScrolling">
             <i class="fa-solid fa-cart-shopping"></i>
           </button>
 

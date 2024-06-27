@@ -9,6 +9,7 @@ export const store = reactive({
   orderList: [],
   cartList: [],
   subTotal: 0,
+  cart: JSON.parse(localStorage.getItem('cart')),
   
   selectType() {
     const selectedTypes = Object.values(this.typesSelected);
@@ -25,7 +26,6 @@ export const store = reactive({
   },
 
   getOrderList() {
-    
     this.orderList = JSON.parse(localStorage.getItem('cart')) || [];
     this.cartList = [];
     this.subTotal = 0;
@@ -36,7 +36,15 @@ export const store = reactive({
       }
     });
     this.cartList.sort((a, b) => a.name.localeCompare(b.name));
+  },
 
+  checkCart(){
+    this.cart = JSON.parse(localStorage.getItem('cart'));
+    if(this.cart?.length > 0){
+      return true
+    }else{
+      return false
+    }
   },
 
 })
