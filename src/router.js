@@ -4,6 +4,8 @@ import Home from './pages/Home.vue';
 import Restaurants from './pages/Restaurants.vue';
 import DishMenu from './pages/DishMenu.vue';
 import Error404 from './pages/Error404.vue';
+import Success from './pages/Success.vue';
+import NotSuccess from './pages/NotSuccess.vue';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -25,6 +27,16 @@ const router = createRouter({
       path: '/dishMenu',
       name: 'dishmenu',
       component: DishMenu
+    },
+    {
+      path: '/Notsuccess',
+      name: 'Notsuccess',
+      component: NotSuccess
+    },
+    {
+      path: '/Success',
+      name: 'Success',
+      component: Success
     },
     {
       path: '/:pathMatch(.*)*',

@@ -8,6 +8,7 @@ export const store = reactive({
   redyReedRestaurants: false,
   orderList: [],
   cartList: [],
+  paymentList: [],
   subTotal: 0,
   cart: JSON.parse(localStorage.getItem('cart')),
   
@@ -36,6 +37,18 @@ export const store = reactive({
       }
     });
     this.cartList.sort((a, b) => a.name.localeCompare(b.name));
+  },
+  getPaymentList() {
+    this.orderList = JSON.parse(localStorage.getItem('cart')) || [];
+    this.paymentList = [];
+    this.subTotal = 0;
+    this.orderList.forEach(orderItem => {
+      this.subTotal = this.subTotal + parseInt(orderItem.price);
+      if (!this.paymentList.some(item => JSON.stringify(item) === JSON.stringify(orderItem))) {
+        this.paymentList.push(orderItem)
+      }
+    });
+    this.paymentList.sort((a, b) => a.name.localeCompare(b.name));
   },
 
   checkCart(){

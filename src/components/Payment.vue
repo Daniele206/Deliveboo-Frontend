@@ -39,13 +39,27 @@ export default {
         }
         axios.post(this.store.apiUrl + '/sendOrders', this.sendData)
               .then( result => {
+                if(result.data.success===true){
+                  this.$router.push('/Success')
+                  // this.store.cartList=[];
+
+                }
+                else{
+                  this.$router.push('/Notsuccess')
+                }
                 console.log(result.data);
+                console.log(result.data.success);
               })
               .catch( error => {
                 console.log(error.message);
               })
+             console.log(this.data.success)
       });
+      
+      
     }
+
+
   },
   mounted() {
     dropin.create({
@@ -65,7 +79,9 @@ export default {
 <template>
   <div>
     <div id="dropin-container"></div>
-    <button id="submit-button" class="button button--small button--green" @click="submitPayment">Purchase</button>
+    <button id="submit-button" class="button button--small button--green" @click="submitPayment" :to="{name: 'Success'}">Purchase</button>
+    
+
   </div>
 </template>
 
