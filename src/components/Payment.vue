@@ -11,7 +11,9 @@ export default {
 
   data() {
     return {
+      store,
       instance: null,
+      sendData: {},
     };
   },
   methods: {
@@ -27,19 +29,27 @@ export default {
         }
         // Submit payload.nonce to your server
         console.log('Payment_method_nonce:', payload.nonce);
-        axios.post(this.store.apiUrl, this.data)
+        this.sendData = {
+          'name': this.data.name,
+          'mail': this.data.mail,
+          'address': this.data.address,
+          'telefon': this.data.telefon,
+          'cart': JSON.parse(localStorage.getItem('cart')),
+          'nonceToken': payload.nonce,
+        }
+        axios.post(this.store.apiUrl + '/sendOrders', this.sendData)
               .then( result => {
                 console.log(result.data);
               })
               .catch( error => {
-                console.log(error);
+                console.log(error.message);
               })
       });
     }
   },
   mounted() {
     dropin.create({
-      authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+      authorization: 'sandbox_mfcvg3gx_s3899v5228tdk746',
       selector: '#dropin-container'
     }, (err, instance) => {
       if (err) {
