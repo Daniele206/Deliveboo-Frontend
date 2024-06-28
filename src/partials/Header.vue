@@ -42,9 +42,19 @@
           <router-link class="my_btn text-decoration-none" :to="{name: 'restaurants'}">Ristoranti</router-link>
           <!-- <router-link class="my_btn text-decoration-none" :to="{name: 'cart'}"><i class="fa-solid fa-cart-shopping"></i></router-link> -->
           
-          <!-- offcanvas -->
+          <!-- offcanvas 
           <button @click="store.getOrderList(), store.checkCart()" class="my_btn text-decoration-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="offcanvasScrolling">
             <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+          -->
+
+          <!-- bottone con badge -->
+          <button  @click="store.getOrderList(), store.checkCart()" class="my_btn text-decoration-none position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="offcanvasScrolling">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-black my_badge" >
+              {{ store.orderList.length }}
+              <span class="visually-hidden">unread messages</span>
+            </span>
           </button>
 
           <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
@@ -87,6 +97,10 @@
   height: 50px;
   line-height: 50px;
   font-size: 2rem;
+}
+
+.my_badge{
+  outline: 1px solid $primary-red;
 }
 
 @media screen and (max-width: 768px) {

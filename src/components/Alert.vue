@@ -46,8 +46,8 @@
           <p>Non puoi ordinare da piú risotranti contemporaneamente!</p>
         </div>
         <div class="modal-footer">
-          <button @click="deleteCart" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Svuota Carrello</button>
-          <button @click="redirectMenu" type="button" class="btn btn-primary" data-bs-dismiss="modal">Ritorna Menu Ristorante Ordine</button>
+          <button @click="deleteCart(), store.getOrderList()" type="button " class="btn btn-secondary empty" data-bs-dismiss="modal">Svuota Carrello</button>
+          <button @click="redirectMenu(), store.getOrderList()" type="button " class="btn btn-primary restaurant" data-bs-dismiss="modal">Ristorante precedente</button>
         </div>
       </div>
     </div>
@@ -55,5 +55,29 @@
 </template>
 
 <style lang="scss" scoped>
+.modal-content{
+  color: white;
+  background-color: rgb(199, 71, 71);
+  border-bottom: 2px;
+  .empty{
+    background-color: rgb(255, 212, 71);
+    color: black;
+    border: none;
+  }
+  .restaurant{
+    background-color: white;
+    color: black;
+    border: none;
+  }
+  .modal-title{
+    font-weight: 700;
+  }
+  .modal-body{
+    text-align: center;
+  }
+ 
+ 
+}
+
 
 </style>
