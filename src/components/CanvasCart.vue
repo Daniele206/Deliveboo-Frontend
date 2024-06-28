@@ -121,13 +121,13 @@ import { store } from '../data/store';
         <div v-if="store.checkCart()">
           <form id="order-form" class="form-control" @submit.prevent="sendOrders()">
             <label for="name">Nome</label>
-            <input type="text" id="name" class="form-control" placeholder="Nome" value="Daniele">
+            <input type="text" id="name" class="form-control" placeholder="Nome" value="Jonny">
             <p id="error-name" class="text-danger"></p>
             <label for="mail">E-Mail</label>
-            <input type="email" id="mail" class="form-control" placeholder="E-Mail" value="d@d.com">
+            <input type="email" id="mail" class="form-control" placeholder="E-Mail" value="jonny@gmail.com">
             <p id="error-mail" class="text-danger"></p>
             <label for="telefon">Numero di telefono</label>
-            <input type="text" id="telefon" class="form-control" placeholder="Numero di telefono" value="1234567890">
+            <input type="text" id="telefon" class="form-control" placeholder="Numero di telefono" value="3332255555">
             <p id="error-telefon" class="text-danger"></p>
             <label for="address">Indirizzo</label>
             <input type="text" id="address" class="form-control" placeholder="Indirizzo" value="Via tal dei tali 4">
