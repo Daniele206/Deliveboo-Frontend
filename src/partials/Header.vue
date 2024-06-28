@@ -16,12 +16,6 @@
     },
 
     methods:{
-      updatePage(){
-        if(this.update === true){
-          location.reload();
-        }
-      },
-
       closeCanvass(){
         this.update = false;
         document.getElementById('closeCanvass').click();
@@ -58,7 +52,7 @@
           </button>
 
           <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
-            <button @click="updatePage()" id="closeCanvass" type="button" class="btn-close mt-3 fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button id="closeCanvass" type="button" class="btn-close mt-3 fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             <CanvasCart @closeCanvass="closeCanvass()"/>
           </div>
         </nav>

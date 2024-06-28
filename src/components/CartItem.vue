@@ -1,4 +1,6 @@
 <script>
+  import { store } from '../data/store';
+
     export default {
     name: 'Cart-Item',
     props:{
@@ -7,6 +9,7 @@
 
     data(){
       return{
+        store,
         arrayData: [],
         dishQuantity: [],
         nItem: 0
@@ -19,7 +22,7 @@
         if (!localStorage.getItem('cart') || localStorage.getItem('cart') === JSON.stringify([])) {
           this.arrayData = [dish];
           localStorage.setItem('cart', JSON.stringify(this.arrayData));
-          this.dishQuantity = [{ [dish.id]: this.nItem + 1 }];
+          this.dishQuantity = [{ [dish.id]: 0 + 1 }];
           localStorage.setItem('dishQuantity', JSON.stringify(this.dishQuantity));
         } else {
           this.arrayData = JSON.parse(localStorage.getItem('cart'));
@@ -28,8 +31,11 @@
             this.arrayData.push(dish);
             for (let i = 0; i < this.dishQuantity.length; i++) {
               if (this.dishQuantity[i][dish.id] !== undefined) {
+                this.nItem = this.dishQuantity[i][dish.id];
                 this.dishQuantity.splice(i, 1);
                 break;
+              }else{
+                this.nItem = 0;
               }
             }
             this.dishQuantity.push({ [dish.id]: this.nItem + 1 });
@@ -59,6 +65,7 @@
             }
             for (let i = 0; i < this.dishQuantity.length; i++) {
               if (this.dishQuantity[i][dish.id] !== undefined) {
+                this.nItem = this.dishQuantity[i][dish.id];
                 this.dishQuantity.splice(i, 1);
                 break;
               }
@@ -87,6 +94,8 @@
     },
 
     mounted(){
+      this.store.getDishQuantity();
+
       if(localStorage.getItem('cart')){
         this.count(this.dish)
       }
@@ -100,10 +109,10 @@
       <li class="line_name">
         <h4>{{ dish.name }}</h4>
       </li>
-      <li class="line_description d-none d-xl-block">
+      <li class="line_description d-none d-xxl-block me-1">
         {{ dish.description }}
       </li>
-      <li class="line_image d-none d-xl-block">
+      <li class="line_image d-none d-xxl-block">
         <img class="card_img" :src="dish.image" :alt="dish.name">
       </li>
       <li>
@@ -111,11 +120,11 @@
       </li>
       <li class="line_quantity">
         <div class="d-flex align-items-center">
-          <button @click="removeItem(dish), count(dish)" class="my_btn"><i class="fa-solid fa-chevron-down"></i></button>
-          <div class="ms-1 ms-2">
-            {{ nItem }}
+          <button @click="removeItem(dish), count(dish), store.getOrderList(), store.getDishQuantity()" class="my_btn me-1"><i class="fa-solid fa-chevron-down"></i></button>
+          <div v-for="(dishQ, i) in store.dishQuantity" :key="i" class="d-flex align-items-center">
+            <span v-if="dishQ[dish.id]">{{ dishQ[dish.id] }}</span>
           </div>
-          <button @click="addItem(dish), count(dish)" class="my_btn"><i class="fa-solid fa-chevron-up"></i></button>
+          <button @click="addItem(dish), count(dish), store.getOrderList(), store.getDishQuantity()" class="my_btn ms-1"><i class="fa-solid fa-chevron-up"></i></button>
         </div>
       </li>
       <li class="line_price d-flex justify-content-end">&euro;{{ dish.price * nItem }}</li>
