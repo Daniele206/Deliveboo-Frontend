@@ -127,6 +127,9 @@
 
 .ul_h{
   max-height: 130px;
+  li{
+    color: black;
+  }
 }
 
 .my_btn {

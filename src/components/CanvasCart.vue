@@ -119,7 +119,7 @@ import { store } from '../data/store';
           </div>
         </div>
         <div v-if="store.checkCart()">
-          <form id="order-form" class="form-control" @submit.prevent="sendOrders()">
+          <form id="order-form" class="form-control my_form" @submit.prevent="sendOrders()">
             <label for="name">Nome</label>
             <input type="text" id="name" class="form-control" placeholder="Nome" value="Jonny">
             <p id="error-name" class="text-danger"></p>
@@ -175,6 +175,12 @@ import { store } from '../data/store';
 .boxettino {
   height: 60px;
   border-top: 2px solid grey;
+}
+
+
+
+.my_btn{
+  padding: 10px 15px;
 }
 
 @media (max-width: 767px) {
