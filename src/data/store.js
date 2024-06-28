@@ -7,6 +7,7 @@ export const store = reactive({
   restaurants: [],
   redyReedRestaurants: false,
   orderList: [],
+  dishQuantity: [],
   cartList: [],
   subTotal: 0,
   cart: JSON.parse(localStorage.getItem('cart')),
@@ -36,6 +37,10 @@ export const store = reactive({
       }
     });
     this.cartList.sort((a, b) => a.name.localeCompare(b.name));
+  },
+
+  getDishQuantity(){
+    this.dishQuantity = JSON.parse(localStorage.getItem('dishQuantity')) || [];
   },
 
   checkCart(){
