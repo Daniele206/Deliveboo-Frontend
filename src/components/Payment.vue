@@ -55,7 +55,6 @@ export default {
               .catch( error => {
                 console.log(error.message);
               })
-            console.log(this.data.success)
       });
       
       
@@ -82,7 +81,7 @@ export default {
 <template>
   <div>
     <div id="dropin-container"></div>
-    <button id="submit-button" class="button button--small button--green" @click="submitPayment" :to="{name: 'Success'}">Purchase</button>
+    <button id="submit-button" class="button button--small button--green" @click="submitPayment" :to="{name: 'Success'}">Acquista</button>
   </div>
 </template>
 
