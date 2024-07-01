@@ -31,7 +31,7 @@ export const store = reactive({
     this.cartList = [];
     this.subTotal = 0;
     this.orderList.forEach(orderItem => {
-      this.subTotal = this.subTotal + parseInt(orderItem.price);
+      this.subTotal = this.subTotal + parseFloat(orderItem.price);
       if (!this.cartList.some(item => JSON.stringify(item) === JSON.stringify(orderItem))) {
         this.cartList.push(orderItem)
       }
