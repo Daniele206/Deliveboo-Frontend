@@ -46,7 +46,7 @@
           <button  @click="store.getOrderList(), store.checkCart()" class="my_btn text-decoration-none position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="offcanvasScrolling">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-black my_badge" >
-              {{ store.orderList.length }}
+              &euro;{{ store.subTotal }}
               <span class="visually-hidden">unread messages</span>
             </span>
           </button>

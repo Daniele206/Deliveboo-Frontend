@@ -18,6 +18,7 @@
         store,
         paymentCart: [],
         paymentSubtotal: '',
+        restaurantName: '',
         orderList: [],
       }
     },
@@ -28,11 +29,15 @@
         this.paymentCart = JSON.parse(localStorage.getItem('lastOrderCompact'));
         localStorage.setItem('lastSubtotal', JSON.stringify(this.store.subTotal));
         this.paymentSubtotal = JSON.parse(localStorage.getItem('lastSubtotal'));
+        localStorage.setItem('lastOrderRestaurantName', localStorage.getItem('restaurantName'));
+        this.restaurantName = localStorage.getItem('lastOrderRestaurantName');
 
         localStorage.setItem('lastOrder', localStorage.getItem('cart'));
 
         localStorage.removeItem('cart');
         localStorage.removeItem('dishQuantity');
+        localStorage.removeItem('restaurantName');
+        this.store.getOrderList();
       },
 
       getPayElement2(){
@@ -53,7 +58,8 @@
 
 <template>
   <div class="container my_padding my_h">
-    <h1 class="text-center text-light fw-bold py-2">Ordine effettuato con successo</h1>
+    <h1 class="text-center text-light fw-bold pt-2">Ordine effettuato con successo</h1>
+    <h2 class="text-center text-light fw-bold pb-2">{{ restaurantName }}</h2>
     <div class="bg-white p-3 rounded-5">
       <PaymentItem v-for="cartItem in paymentCart" :key="cartItem.id" :dish="cartItem" :orderList="orderList"/>
       <h2>Totale Ordine</h2>
