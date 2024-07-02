@@ -87,7 +87,7 @@ export default {
     <button
       id="submit-button"
       class="button button--small button--green"
-      @click="submitPayment(), dNone()"
+      @click="submitPayment()"
       :to="{ name: 'Success' }"
     >
       Acquista
