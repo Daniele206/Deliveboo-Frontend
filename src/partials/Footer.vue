@@ -220,6 +220,10 @@ ul {
   }
 
   .col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     flex: 1 1 100%;
     margin: 10px 0;
   }
