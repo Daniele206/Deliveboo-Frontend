@@ -1,47 +1,47 @@
 <script>
-  // Importa i componenti Swiper per Vue.js
-  import { Swiper, SwiperSlide } from 'swiper/vue';
+// Importa i componenti Swiper per Vue.js
+import { Swiper, SwiperSlide } from "swiper/vue";
 
-  // Importa gli stili di Swiper
-  import 'swiper/css';
-  import 'swiper/css/pagination';
-  import 'swiper/css/autoplay';
+// Importa gli stili di Swiper
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
-  // Importa i moduli richiesti
-  import { Pagination, Autoplay } from 'swiper/modules';
+// Importa i moduli richiesti
+import { Pagination, Autoplay } from "swiper/modules";
 
-  // store
-  import { store } from '../data/store';
-  // store
+// store
+import { store } from "../data/store";
+// store
 
-  export default {
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
 
-    props: {
-      types: Array
-    },
+  props: {
+    types: Array,
+  },
 
-    data() {
-      return {
-        store,
-        modules: [Pagination, Autoplay],
-      };
-    },
+  data() {
+    return {
+      store,
+      modules: [Pagination, Autoplay],
+    };
+  },
 
-    methods:{
-      slectType(nameType, i){
-        if(this.store.typesSelected[i] === (nameType)){
-          delete this.store.typesSelected[i];
-        }else{
-          this.store.typesSelected[i] = nameType;
-        }
-        this.store.selectType();
+  methods: {
+    slectType(nameType, i) {
+      if (this.store.typesSelected[i] === nameType) {
+        delete this.store.typesSelected[i];
+      } else {
+        this.store.typesSelected[i] = nameType;
       }
-    }
-  };
+      this.store.selectType();
+    },
+  },
+};
 </script>
 
 <template>
@@ -55,7 +55,7 @@
     :modules="modules"
     class="mySwiper"
     :loop="true"
-    :autoplay="{ delay: 3000}"
+    :autoplay="{ delay: 3000 }"
     :breakpoints="{
       320: {
         slidesPerView: 1,
@@ -72,7 +72,14 @@
     }"
   >
     <swiper-slide v-for="(oneType, i) in types" :key="oneType.id">
-      <router-link class="my_btn my_border text-decoration-none" :to="{name: 'restaurants'}" @click="slectType(oneType.name, i)">{{ oneType.name }}</router-link>
+      <router-link
+        class="my_btn_swiper my_border text-decoration-none"
+        :to="{ name: 'restaurants' }"
+        @click="slectType(oneType.name, i)"
+        ><span class="btn_text">
+          {{ oneType.name }}
+        </span>
+      </router-link>
     </swiper-slide>
   </swiper>
 </template>
@@ -97,17 +104,21 @@
 
 .swiper-slide {
   text-align: center;
-  a{
+  a {
     font-size: 2rem;
   }
   color: white;
   text-transform: uppercase;
   font-weight: bold;
 
-  /* Centra il testo della diapositiva verticalmente */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.my_btn_swiper {
+  color: white;
+  padding: 5px 15px;
 }
 
 .swiper-slide img {
@@ -117,7 +128,7 @@
   object-fit: cover;
 }
 
-.my_border{
+.my_border {
   border: white 2px solid;
   border-radius: 25px;
 }

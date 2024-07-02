@@ -41,12 +41,14 @@ export default {
       <div class="types_container fw-bold" v-else>
         <h5 class="fw-bold">Nessuna tipologia...</h5>
       </div>
-      <router-link
-        @click="setMenu(restaurant)"
-        :to="{ name: 'dishmenu' }"
-        class="my_btn"
-        >Menú</router-link
-      >
+      <div class="menu_btn">
+        <router-link
+          @click="setMenu(restaurant)"
+          :to="{ name: 'dishmenu' }"
+          class="my_btn"
+          >Menú</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -71,10 +73,12 @@ export default {
   height: 200px;
 }
 
-.my_btn {
-  height: 40px;
-  margin: 0;
-  width: 32%;
-  text-decoration: none;
+.menu_btn {
+  display: inline-block;
+  .my_btn {
+    height: 40px;
+    margin: 0;
+    text-decoration: none;
+  }
 }
 </style>
