@@ -159,7 +159,6 @@ export default {
               id="name"
               class="form-control"
               placeholder="Nome"
-              value="Jonny"
             />
             <p id="error-name" class="text-danger"></p>
             <label for="surname">Cognome</label>
@@ -168,7 +167,6 @@ export default {
               id="surname"
               class="form-control"
               placeholder="Cognome"
-              value="ilBello"
             />
             <p id="error-surname" class="text-danger"></p>
             <label for="mail">E-Mail</label>
@@ -177,7 +175,6 @@ export default {
               id="mail"
               class="form-control"
               placeholder="E-Mail"
-              value="jonny@gmail.com"
             />
             <p id="error-mail" class="text-danger"></p>
             <label for="telefon">Numero di telefono</label>
@@ -186,7 +183,6 @@ export default {
               id="telefon"
               class="form-control"
               placeholder="Numero di telefono"
-              value="3332255555"
             />
             <p id="error-telefon" class="text-danger"></p>
             <label for="address">Indirizzo</label>
@@ -195,7 +191,6 @@ export default {
               id="address"
               class="form-control"
               placeholder="Indirizzo"
-              value="Via tal dei tali 4"
             />
             <p id="error-address" class="text-danger"></p>
             <button type="submit" class="my_btn ms-0 mt-3">

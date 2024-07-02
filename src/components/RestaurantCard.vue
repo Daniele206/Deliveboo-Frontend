@@ -75,5 +75,6 @@ export default {
   height: 40px;
   margin: 0;
   width: 32%;
+  text-decoration: none;
 }
 </style>
